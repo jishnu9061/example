@@ -22,6 +22,7 @@ class Outlet extends Model
         'socket_type',
         'vehicles',
         'amenities',
+        'image'
     ];
 
     public static function getTableName()

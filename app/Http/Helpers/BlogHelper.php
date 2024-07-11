@@ -25,4 +25,20 @@ class BlogHelper
         }
         return $file;
     }
+
+    /**
+     * @param mixed $imageName
+     *
+     * @return [type]
+     */
+    public static function getOutletImagePath($imageName)
+    {
+        $file = asset('images/blog.jpg');
+        if (null != $imageName) {
+            if (FileManager::checkFileExist($imageName, FileDestinations::OUTLET_IMAGE)) {
+                $file = FileManager::getFileUrl($imageName, FileDestinations::OUTLET_IMAGE);
+            }
+        }
+        return $file;
+    }
 }

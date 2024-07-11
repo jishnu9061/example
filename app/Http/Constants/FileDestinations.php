@@ -9,5 +9,7 @@ class FileDestinations
 
     const PARTNER_IMAGE = 'partner/image/';
 
+    const OUTLET_IMAGE = 'outlet/image/';
+
     const PAGE = 10;
 }

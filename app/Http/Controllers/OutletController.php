@@ -9,12 +9,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Helpers\Utilities\ToastrHelper;
+use App\Http\Constants\FileDestinations;
+
+use App\Http\Helpers\Core\FileManager;
 
 use App\Models\Outlet;
 
 use App\Http\Requests\OutletStoreRequest;
 use App\Http\Requests\OutletUpdateRequest;
+use App\Http\Helpers\Utilities\ToastrHelper;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -27,7 +30,7 @@ class OutletController extends Controller
     public function index()
     {
         $path = $this->getView('admin.outlet.index');
-        $outlets = Outlet::select('id', 'outlet_code', 'outlet_name', 'address', 'district', 'state', 'socket_type', 'vehicles', 'amenities', 'city','map')->paginate(10);
+        $outlets = Outlet::select('id', 'outlet_code', 'outlet_name', 'address', 'district', 'state', 'socket_type', 'vehicles', 'amenities', 'city', 'map','image')->paginate(10);
         $para = ['outlets' => $outlets];
         $title = 'Outlets';
         return $this->renderView($path, $para, $title);
@@ -52,7 +55,7 @@ class OutletController extends Controller
     public function store(OutletStoreRequest $request)
     {
         try {
-            Outlet::create([
+            $outlet = Outlet::create([
                 'outlet_code' => $request->input('outlet_code'),
                 'outlet_name' => $request->input('outlet_name'),
                 'address' => $request->input('address'),
@@ -64,6 +67,13 @@ class OutletController extends Controller
                 'vehicles' => $request->input('vehicles'),
                 'amenities' => $request->input('amenities'),
             ]);
+            if ($request->hasFile('image')) {
+                $res = FileManager::upload(FileDestinations::OUTLET_IMAGE, 'image', FileManager::FILE_TYPE_IMAGE);
+                if ($res['status']) {
+                    $outlet->image = $res['data']['fileName'];
+                    $outlet->save();
+                }
+            }
             ToastrHelper::success('Outlet added successfully');
             return redirect()->route('outlet.index');
         } catch (\Exception $e) {
@@ -104,6 +114,13 @@ class OutletController extends Controller
             'vehicles' => $request->input('vehicles'),
             'amenities' => $request->input('amenities'),
         ]);
+        if ($request->hasFile('image')) {
+            $res = FileManager::upload(FileDestinations::OUTLET_IMAGE, 'image', FileManager::FILE_TYPE_IMAGE);
+            if ($res['status']) {
+                $outlet->image = $res['data']['fileName'];
+                $outlet->save();
+            }
+        }
         ToastrHelper::success('Outlet updated successfully');
         return redirect()->route('outlet.index');
     }

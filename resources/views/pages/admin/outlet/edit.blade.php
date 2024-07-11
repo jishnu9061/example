@@ -15,7 +15,7 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <form action="{{ route('outlet.update',$outlet->id) }}" method="post">
+                        <form action="{{ route('outlet.update',$outlet->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
@@ -87,19 +87,35 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4">
                                     <div class="mb-4">
-                                        <label for="example-text-input" class="form-label">Socket Type</label>
-                                        <input class="form-control" type="text" name="socket_type" value="{{ old('socket_type',$outlet->socket_type) }}" id="example-text-input">
+                                        <label for="example-text-input" class="form-label">Vehicles</label>
+                                        <input class="form-control" type="text" name="vehicles" value="{{ old('vehicles',$outlet->vehicles) }}" id="example-text-input">
                                     </div>
-                                    @error('socket_type')
+                                    @error('vehicles')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 col-md-4">
                                     <div class="mb-4">
-                                        <label for="example-text-input" class="form-label">Vehicles</label>
-                                        <input class="form-control" type="text" name="vehicles" value="{{ old('vehicles',$outlet->vehicles) }}" id="example-text-input">
+                                        <label for="example-text-input" class="form-label">Image</label>
+                                        <input type="file" class="form-control" name="image">
                                     </div>
-                                    @error('vehicles')
+
+                                        <span class="text-danger"></span>
+
+                                </div>
+                                @if ($outlet->image)
+                                <img src="{{ \App\Http\Helpers\BlogHelper::getOutletImagePath($outlet->image) }}" style="float:left; left:73%; width:20%;"
+                                    alt="Outlet Image">
+                            @else
+                                <p>No image available</p>
+                            @endif
+
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="mb-4">
+                                        <label for="example-text-input" class="form-label">Socket Type</label>
+                                        <textarea class="form-control" type="text" name="socket_type" id="example-text-input">{{ old('socket_type',$outlet->socket_type) }}</textarea>
+                                    </div>
+                                    @error('socket_type')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

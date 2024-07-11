@@ -32,6 +32,7 @@ class OutletStoreRequest extends FormRequest
             'socket_type' => 'required|string|max:255',
             'vehicles' => 'required|string|max:255',
             'amenities' => 'required|string|max:1000',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }

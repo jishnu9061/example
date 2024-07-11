@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-xl-8">
                 <div class="course-details__thumb">
-                    <img src="{{ asset('home/images/gvl2.jpeg') }}" alt="greenveel" />
+                    <img src="{{ \App\Http\Helpers\BlogHelper::getOutletImagePath($outlet->image) }}" alt="greenveel" />
                 </div><!-- details-thumb -->
                 <div class="course-two__time">{{ $outlet->outlet_code }}</div>
                 <h3 class="course-details__title mb-2">{{ $outlet->outlet_name }}</h3><!-- details-title -->
@@ -32,11 +32,8 @@
                 </div><!-- details-meta -->
                 <div class="course-details__tabs tabs-box">
                     <div class="course-details__overview">
-                        <h4> {{ strip_tags($outlet->amenities) }}</h4>
-
                         <p class="course-details__overview__text">
-                            Recharge comfortably at GreenVeel’s EV station with top-notch amenities. Enjoy a hassle-free
-                            experience while your vehicle charges efficiently.
+                            {{ strip_tags($outlet->amenities) }}
                         </p>
                         <ul class="list-unstyled course-details__overview__lists">
                             <li><span class="icon-check"></span>Relax in our comfy seating area with fans to keep you
@@ -99,9 +96,9 @@
                                     </div>
                                     <div class="course-details__sidebar__post__content">
                                         <span class="course-details__sidebar__post__meta"> <a
-                                                href="course.html">{{ $station->district }}</a></span>
+                                                href="{{ route('outlets') }}">{{ $station->district }}</a></span>
                                         <h3 class="course-details__sidebar__post__title"><a
-                                                href="outletDetail.php">{{ $station->address }}</a></h3>
+                                                href="{{ route('outlet-detail',$station->id) }}">{{ $station->address }}</a></h3>
 
                                     </div>
                                 </li>

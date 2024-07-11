@@ -33,6 +33,7 @@
                                     <th>State </th>
                                     <th>Location</th>
                                     <th>Socket type</th>
+                                    <th>Images</th>
                                     <th>Vehicles</th>
                                     <th>Action</th>
                                 </tr>
@@ -50,6 +51,7 @@
                                         <td>{{ $outlet->state }}</td>
                                         <td><a href="{{ $outlet->map }}" target="_blank"><i class="bx bx-map"></i></a></td>
                                         <td>{{ $outlet->socket_type }}</td>
+                                        <td><img src="{{ \App\Http\Helpers\BlogHelper::getOutletImagePath($outlet->image) }}" width="150"></td>
                                         <td>{{ $outlet->vehicles }}</td>
                                         <td>
                                             <a href="{{ route('outlet.edit', $outlet->id) }}"

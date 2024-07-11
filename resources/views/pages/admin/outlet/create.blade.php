@@ -15,10 +15,9 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <form action="{{ route('outlet.store') }}" method="post">
+                        <form action="{{ route('outlet.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-
                                 <div class="col-lg-4 col-md-4">
                                     <div class="mb-4">
                                         <label for="example-text-input" class="form-label">Outlet Code</label>
@@ -85,21 +84,30 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                <div class="col-lg-4 col-md-4">
-                                    <div class="mb-4">
-                                        <label for="example-text-input" class="form-label">Socket Type</label>
-                                        <input class="form-control" type="text" name="socket_type" value="{{ old('socket_type') }}" id="example-text-input">
-                                    </div>
-                                    @error('socket_type')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-4 col-md-4">
+                                 <div class="col-lg-4 col-md-4">
                                     <div class="mb-4">
                                         <label for="example-text-input" class="form-label">Vehicles</label>
                                         <input class="form-control" type="text" name="vehicles" value="{{ old('vehicles') }}" id="example-text-input">
                                     </div>
                                     @error('vehicles')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="mb-4">
+                                        <label for="example-text-input" class="form-label">Image</label>
+                                        <input type="file" class="form-control" name="image">
+                                    </div>
+
+                                        <span class="text-danger"></span>
+
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="mb-4">
+                                        <label for="example-text-input" class="form-label">Socket Type</label>
+                                        <textarea class="form-control" type="text" name="socket_type" id="example-text-input">{{ old('socket_type') }}</textarea>
+                                    </div>
+                                    @error('socket_type')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
