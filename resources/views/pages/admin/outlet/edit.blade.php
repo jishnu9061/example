@@ -113,7 +113,7 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="mb-4">
                                         <label for="example-text-input" class="form-label">Socket Type</label>
-                                        <textarea class="form-control ckeditor-classic" type="text" name="socket_type" id="example-text-input">{{ old('socket_type',$outlet->socket_type) }}</textarea>
+                                        <textarea class="form-control ckeditor-classic-class" type="text" name="socket_type" id="example-text-input">{{ old('socket_type',$outlet->socket_type) }}</textarea>
                                     </div>
                                     @error('socket_type')
                                         <span class="text-danger">{{ $message }}</span>
