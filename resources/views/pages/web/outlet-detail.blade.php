@@ -60,11 +60,11 @@
                 <div class="course-details__sidebar">
                     <div class="course-details__sidebar__item">
                         <h3 class="course-details__sidebar__title">Station Details</h3>
-                        <ul class="course-details__sidebar__lists clerfix">
+                        <ul class="course-details__sidebar__lists clerfix socket-list">
                             <li>
                                 <div class="mb-2"><img src="{{ asset('home/images/icons/socket.png') }}"
                                         class="me-2 " width="25">Socket Type:</div>
-                                <h5> {{ $outlet->socket_type }}</h5>
+                                <h5> {!! $outlet->socket_type !!}</h5>
                             </li>
                             <li>
                                 <div class="mb-2"><img src="{{ asset('home/images/icons/wheel.png') }}" width="25"
@@ -98,7 +98,8 @@
                                         <span class="course-details__sidebar__post__meta"> <a
                                                 href="{{ route('outlets') }}">{{ $station->district }}</a></span>
                                         <h3 class="course-details__sidebar__post__title"><a
-                                                href="{{ route('outlet-detail',$station->id) }}">{{ $station->address }}</a></h3>
+                                                href="{{ route('outlet-detail', $station->id) }}">{{ $station->address }}</a>
+                                        </h3>
 
                                     </div>
                                 </li>

@@ -39,7 +39,7 @@
                     <h3 class="main-footer__title">Our Outlets</h3>
                     <ul>
                         @foreach ($outLetNames as $outlet)
-                            <li><a href="{{ route('outlet-detail',$outlet->id) }}">{{ $outlet->outlet_name }}</a></li>
+                            <li><a href="{{ route('outlet-detail', $outlet->id) }}">{{ $outlet->outlet_name }}</a></li>
                         @endforeach
                     </ul><!-- /.list-unstyled -->
                 </div><!-- /.footer-menu -->
@@ -91,7 +91,8 @@
             <a href="outlets.php"><i class="fa fa-store"></i></a>
         </li>
         <li>
-            <a href="index.php#download"><i class="fa fa-download"></i></a>
+            <a href="https://play.google.com/store/apps/details?id=com.chargezone&hl=en_IN"><i
+                    class="fa fa-download"></i></a>
         </li>
     </ul>
 </div>

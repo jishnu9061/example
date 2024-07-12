@@ -81,11 +81,11 @@
                     </div><!-- /.main-menu__nav -->
 
                  <div class="main-menu__right">
-                        <a href="#" class="main-menu__toggler mobile-nav__toggler">
+                        <a href="javascript:;" class="main-menu__toggler mobile-nav__toggler">
                             <i class="fa fa-bars"></i>
                         </a><!-- /.mobile menu btn -->
 
-                         <a href="javascript:;" class="eduact-btn"><span class="eduact-btn__curve"></span>Download App</a><!-- /.contact btn -->
+                         <a href="https://play.google.com/store/apps/details?id=com.chargezone&hl=en_IN" target="_blank" class="eduact-btn"><span class="eduact-btn__curve"></span>Download App</a><!-- /.contact btn -->
                     </div><!-- /.main-menu__right -->
                 </div><!-- /.container -->
 
