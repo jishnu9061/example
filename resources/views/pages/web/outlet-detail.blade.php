@@ -33,7 +33,7 @@
                 <div class="course-details__tabs tabs-box">
                     <div class="course-details__overview">
                         <p class="course-details__overview__text">
-                            {{ strip_tags($outlet->amenities) }}
+                            {!! $outlet->amenities !!}
                         </p>
                         <ul class="list-unstyled course-details__overview__lists">
                             <li><span class="icon-check"></span>Relax in our comfy seating area with fans to keep you
