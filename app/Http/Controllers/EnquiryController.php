@@ -52,7 +52,7 @@ class EnquiryController extends Controller
             'comment' => $request->message,
             'date' => Carbon::now()->format('Y-m-d')
         ]);
-        Mail::to('admin@developer.com')->send(new EnquiryMail($enquiry));
+        Mail::to('jishnuganesh27@gmail.com')->send(new EnquiryMail($enquiry));
         ToastrHelper::success('Enquiry added successfully');
         return Response::json(['success' => true]);
     }

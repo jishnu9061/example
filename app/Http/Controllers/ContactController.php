@@ -53,7 +53,7 @@ class ContactController extends Controller
             'message' => $request->message,
             'date' => Carbon::now()->format('Y-m-d')
         ]);
-        Mail::to('admin@developer.com')->send(new ContactMail($contact));
+        Mail::to('jishnuganesh27@gmail.com')->send(new ContactMail($contact));
         return Response::json(['success' => true]);
     }
 

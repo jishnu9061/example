@@ -25,7 +25,7 @@ class WebOutletController extends Controller
     public function index(Request $request)
     {
         $path = $this->getView('web.outlet');
-        $query = Outlet::select('id', 'outlet_code', 'outlet_name', 'city', 'district', 'state', 'map', 'socket_type', 'vehicles', 'amenities', 'address');
+        $query = Outlet::select('id', 'outlet_code', 'outlet_name', 'city', 'district', 'state', 'map', 'socket_type', 'vehicles', 'amenities', 'address','image');
         if ($request->filled('city_search')) {
             $query->where('city', 'like', '%' . $request->input('city_search') . '%');
         }
